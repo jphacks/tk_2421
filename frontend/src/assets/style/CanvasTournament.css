@@ -7,7 +7,7 @@
     margin: 20px auto;
     width: 80vw;
     max-width: 600px;
-    position: relative; /* 子要素の位置を調整するため */
+    position: relative;
 }
 
 .left-match {
@@ -42,8 +42,26 @@
 
 .vertical-line {
     position: absolute;
-    left: 70px; /* 左からの位置を調整 */
+    left: 70px;
     width: 2px;
-    height: 51%; /* 親要素の高さに合わせる */
+    height: 51%;
+    background-color: black;
+}
+
+.horizontal-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+}
+
+.next-vertical-line {
+    position: absolute;
+    left: 120px;
+    top: 25%;
+    width: 2px;
+    height: 50%;
     background-color: black;
 }
