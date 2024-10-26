@@ -9,8 +9,14 @@ app.use(cors());
 app.use(express.json()); // JSONリクエストを解析
 
 // APIエンドポイントの例
-app.get('/api/hello', (req, res) => {
-    res.json({ message: 'Hello from Express!' });
+app.get('/api/tournament', (req, res) => {
+    const tournament = [
+        { id: 1, name: "佐藤" },
+        { id: 2, name: "鈴木" },
+        { id: 3, name: "高橋" },
+        { id: 4, name: "田中"}
+    ]
+    res.json(tournament);
 });
 
 // サーバーを起動

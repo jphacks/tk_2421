@@ -1,32 +1,39 @@
 import NameBlocks from "./NameBlocks";
-import LeftBlocks from "./LeftBlocks";
-import RightBlocks from "./RightBlocks";
+import { useEffect, useState } from "react";
+import LineBlocks from "./LineBlocks";
 
 function Tournament() {
+
+  const [tournament, setTournament] = useState([]);
+
+  useEffect(() => {
+    const fetchTournament = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/tournament');
+        if(!response.ok){
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data);
+        setTournament(data);
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    }
+    fetchTournament();
+  }, []);
+
+  useEffect(() => {
+    console.log(Math.log2(tournament.length));
+  }, [tournament]);
+
   return (
     <div>
       <div style={{ height: "50px" }}></div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex" }}>
           <NameBlocks />
-          <LeftBlocks num={1} row={32} />
-          <LeftBlocks num={2} row={16} />
-          <LeftBlocks num={3} row={8} />
-          <LeftBlocks num={4} row={4} />
-          <LeftBlocks num={5} row={2} />
-          <LeftBlocks num={6} row={1} />
-          <div>
-            <div>
-              <div className="top-back bottom-back right-back left-back" style={{ width: "60px", height: "892px" }}></div>
-              <div className="top-basic bottom-back right-back left-back" style={{ width: "60px", height: "892px" }}></div>
-            </div>
-          </div>
-          <RightBlocks num={6} row={1} />
-          <RightBlocks num={5} row={2} />
-          <RightBlocks num={4} row={4} />
-          <RightBlocks num={3} row={8} />
-          <RightBlocks num={2} row={16} />
-          <RightBlocks num={1} row={32} />
+          <LineBlocks num={Math.log2(tournament.length)}/>
           <NameBlocks />
         </div>
       </div>
