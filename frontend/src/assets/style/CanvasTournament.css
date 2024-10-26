@@ -1,0 +1,49 @@
+.canvas-tournament-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 50vh;
+    margin: 20px auto;
+    width: 80vw;
+    max-width: 600px;
+    position: relative; /* 子要素の位置を調整するため */
+}
+
+.left-match {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 50vh;
+    width: 80vw;
+    position: relative;
+}
+
+.dot-line {
+    display: flex;
+    align-items: center;
+    width: 13%;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: black;
+}
+
+.vertical-line {
+    position: absolute;
+    left: 70px; /* 左からの位置を調整 */
+    width: 2px;
+    height: 51%; /* 親要素の高さに合わせる */
+    background-color: black;
+}

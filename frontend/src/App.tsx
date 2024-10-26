@@ -2,8 +2,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './assets/style/style.css';
 import EntryForm from './components/EntryForm';
-import Tournament from './components/Tournament';
+// import Tournament from './components/Tournament';
 import Menu from './components/Menu';
+import CanvasTournament from './components/CanvasTournament';
 
 function App() {
   // useEffect(() => {
@@ -22,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Menu />}/>
-        <Route path="/tournament" element={<Tournament />}/>
+        <Route path="/show-tournament" element={<CanvasTournament />}/>
         <Route path="/entry" element={<EntryForm />} />
       </Routes>
     </BrowserRouter>
