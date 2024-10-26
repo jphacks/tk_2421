@@ -1,11 +1,13 @@
-import React from 'react';
-import '../assets/style/AuthForm.css';
+import React from "react";
+import "../assets/style/AuthForm.css";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm: React.FC = () => {
-    const handleGoogleSignUp = () => {
-        alert('Googleアカウントで登録がクリックされました');
-    };
-
+  const navigate = useNavigate();
+  const handleGoogleSignUp = () => {
+    //alert('Googleアカウントで登録がクリックされました');
+    navigate("/Menu");
+  };
     return (
         <div className="auth-form-wrapper">
             <h1 className="app-title">らくっしょ</h1>
