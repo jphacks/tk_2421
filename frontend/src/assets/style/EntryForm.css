@@ -1,0 +1,73 @@
+.entry-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border-radius: 12px;
+    width: 350px;
+    margin: 30px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #f0f4ff, #d4e0ff);
+}
+
+.entry-form-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.entry-form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.entry-form-container label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    width: 90%;
+    text-align: left;
+}
+
+.entry-form-container input[type="text"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 90%;
+    margin-bottom: 15px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.entry-form-container input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.entry-form-container button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+    margin-top: 20px;
+}
+
+.entry-form-container button:hover {
+    background: linear-gradient(135deg, #0056b3, #003a80);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.6);
+}
+
+.entry-form-container button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
