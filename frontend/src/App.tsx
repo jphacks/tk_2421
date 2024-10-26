@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect, useState } from "react";
 import { createClient, Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
@@ -6,8 +5,9 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/style/style.css";
 import EntryForm from "./components/EntryForm";
-import Tournament from "./components/Tournament";
+import CanvasTournament from "./components/CanvasTournament";
 import Menu from "./components/Menu";
+import AuthForm from './components/AuthForm';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
@@ -39,8 +39,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Menu />} />
-        <Route path="/tournament" element={<Tournament />} />
+        <Route path="/" element={<AuthForm />}/>
+        <Route path="/show-tournament" element={<CanvasTournament />}/>
         <Route path="/entry" element={<EntryForm />} />
       </Routes>
     </BrowserRouter>

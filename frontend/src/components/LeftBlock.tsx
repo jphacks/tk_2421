@@ -1,12 +1,16 @@
-function Block (props) {
+import styled from 'styled-components';
+
+const LeftFirstBlock = styled.div`
+    width: 30px
+    height: ${(props) => 3 + 7 * (Math.pow(2, props.num) - 1) }px
+`;
+
+function LeftBlock (props) {
     return (
         <div>
-            <div className="top-back bottom-back right-back left-back" style={{ width: "30px", height: "10px" }}></div>
-            <div className="top-basic bottom-back right-basic left-back" style={{ width: "30px", height: "10px" }}></div>
-            <div className="top-back bottom-basic right-basic left-back" style={{ width: "30px", height: "10px" }}></div>
-            <div className="top-back bottom-back right-back left-back" style={{ width: "30px", height: "10px" }}></div>
+            <LeftFirstBlock num={props.num} />
         </div>
     );
 }
 
-export default Block;
+export default LeftBlock;
