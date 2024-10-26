@@ -44,19 +44,26 @@ function Menu() {
   }, []);
 
   if (!session) {
-    return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
-  }
-
-  return (
-    <div className="home-container">
-      <h2>大会管理システム</h2>
-      <div className="button-group">
-        <button onClick={handleEntry}>エントリーする</button>
-        <button onClick={handleCreateTournament}>トーナメントを作成する</button>
-        <button onClick={handleShowTournament}>トーナメントを表示する</button>
+    return (
+      <Auth
+        supabaseClient={supabase}
+        appearance={{ theme: ThemeSupa }}
+        providers={["google"]}
+      />
+    );
+  } else
+    return (
+      <div className="home-container">
+        <h2>大会管理システム</h2>
+        <div className="button-group">
+          <button onClick={handleEntry}>エントリーする</button>
+          <button onClick={handleCreateTournament}>
+            トーナメントを作成する
+          </button>
+          <button onClick={handleShowTournament}>トーナメントを表示する</button>
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default Menu;
