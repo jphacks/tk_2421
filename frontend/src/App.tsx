@@ -1,24 +1,40 @@
-// src/App.jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './assets/style/style.css';
-import EntryForm from './components/EntryForm';
-// import Tournament from './components/Tournament';
-import Menu from './components/Menu';
+import { useEffect, useState } from "react";
+import { createClient, Session } from "@supabase/supabase-js";
+import { Auth } from "@supabase/auth-ui-react";
+import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./assets/style/style.css";
+import EntryForm from "./components/EntryForm";
+import CanvasTournament from "./components/CanvasTournament";
+import Menu from "./components/Menu";
 import AuthForm from './components/AuthForm';
-import CanvasTournament from './components/CanvasTournament';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
-  // useEffect(() => {
-  //   fetch('/api/hello') // Express APIエンドポイントを呼び出す
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => setMessage(data.message))
-  //     .catch((error) => console.error('Error:', error));
-  // }, []);
+  //const [message, setMessage] = useState("");
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  if (!session) {
+    return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
+  }
 
   return (
     <BrowserRouter>
