@@ -7,17 +7,26 @@ import Menu from './components/Menu';
 import AuthForm from './components/AuthForm';
 
 function App() {
-  // useEffect(() => {
-  //   fetch('/api/hello') // Express APIエンドポイントを呼び出す
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => setMessage(data.message))
-  //     .catch((error) => console.error('Error:', error));
-  // }, []);
+  //const [message, setMessage] = useState("");
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  if (!session) {
+    return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
+  }
 
   return (
     <BrowserRouter>
