@@ -7,7 +7,7 @@
     font-size: 2.5em;
     margin-bottom: 5px;
     color: #333;
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* 好きなフォントをここで指定 */
+    font-style: italic;
     letter-spacing: 2px;
 }
 
@@ -15,27 +15,19 @@
     font-size: 1.2em;
     color: #555;
     margin-bottom: 20px;
-    font-style: italic;
 }
 
 .auth-form-container {
     background: linear-gradient(135deg, #f0f4ff, #d4e0ff);
     padding: 40px;
+    margin-top: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin: 0 auto;
 }
 
-.auth-form-container h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.google-signup-button {
-    padding: 12px 24px;
-    font-size: 1.1em;
+.signin-signup-button {
+    padding: 14px 26px;
+    font-size: 1.0em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -45,13 +37,13 @@
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
 }
 
-.google-signup-button:hover {
+.signin-signup-button:hover {
     background: linear-gradient(135deg, #0056b3, #003a80);
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 123, 255, 0.6);
 }
 
-.google-signup-button:active {
+.signin-signup-button:active {
     transform: translateY(2px);
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
 }
