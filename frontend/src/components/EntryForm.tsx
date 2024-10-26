@@ -15,7 +15,7 @@ const EntryForm: React.FC = () => {
         event.preventDefault();
         alert(`エントリーされた選手名: ${playerName}`);
         setPlayerName(''); // フォームをリセット
-        navigate('/tournament');
+        navigate('/menu');
     };
 
     
