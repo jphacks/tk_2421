@@ -2,15 +2,11 @@ import "../assets/style/Menu.css";
 import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
-import { createClient, Session } from "@supabase/supabase-js";
+import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import "../assets/style/style.css";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from "../utils/SupabaseClient";
 
 function Menu() {
   const navigate = useNavigate();
