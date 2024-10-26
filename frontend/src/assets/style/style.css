@@ -1,0 +1,52 @@
+.Block1 {
+    width: 30px;
+    height: 10px;
+}
+
+.top-basic {
+    border-top: 2px solid black;
+}
+
+.bottom-basic {
+    border-bottom: 2px solid black;
+}
+
+.right-basic {
+    border-right: 2px solid black;
+}
+
+.left-basic {
+    border-left: 2px solid black;
+}
+
+.top-win {
+    border-top: 2px solid red;
+}
+
+.bottom-win {
+    border-bottom: 2px solid red;
+}
+
+.right-win {
+    border-right: 2px solid red;
+}
+
+.left-win {
+    border-left: 2px solid red;
+}
+
+.top-back {
+    border-top: 2px solid transparent;
+}
+
+.bottom-back {
+    border-bottom: 2px solid transparent;
+}
+
+.right-back {
+    border-right: 2px solid transparent;
+}
+
+.left-back {
+    border-left: 2px solid transparent;
+}
