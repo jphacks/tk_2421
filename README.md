@@ -1,9 +1,10 @@
-# プロダクト名:らくっしょ
-大会運営支援ツール
+# プロダクト名:らくらくトーナメント
+
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2024/07/JPHACKS2024_ogp.jpg)](https://www.youtube.com/watch?v=DZXUkEj-CSI)
 
 ## 製品概要
+大会運営支援ツール
 ### 背景(製品開発のきっかけ、課題等）
 ### 製品説明（具体的な製品の説明）
 ### 特長
