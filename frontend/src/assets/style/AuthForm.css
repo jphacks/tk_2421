@@ -1,23 +1,33 @@
-.home-container {
+.auth-form-wrapper {
     text-align: center;
     margin-top: 50px;
+}
+
+.app-title {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    color: #333;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+.app-subtitle {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.auth-form-container {
     background: linear-gradient(135deg, #f0f4ff, #d4e0ff);
     padding: 40px;
+    margin-top: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.button-group {
-    display: flex;
-    flex-direction: column; /* 縦方向に配置 */
-    align-items: center; /* ボタンを中央揃え */
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.button-group button {
-    padding: 12px 24px;
-    font-size: 1.1em;
+.signin-signup-button {
+    padding: 14px 26px;
+    font-size: 1.0em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -25,16 +35,15 @@
     color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-    width: 200px; /* ボタンの幅を設定 */
 }
 
-.button-group button:hover {
+.signin-signup-button:hover {
     background: linear-gradient(135deg, #0056b3, #003a80);
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 123, 255, 0.6);
 }
 
-.button-group button:active {
+.signin-signup-button:active {
     transform: translateY(2px);
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
 }

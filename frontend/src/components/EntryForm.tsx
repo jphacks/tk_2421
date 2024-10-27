@@ -1,43 +1,48 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../assets/style/EntryForm.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../assets/style/EntryForm.css";
+import { supabase } from "../utils/SupabaseClient";
 
 const EntryForm: React.FC = () => {
-    const [playerName, setPlayerName] = useState<string>('');
+  const [playerName, setPlayerName] = useState<string>("");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPlayerName(event.target.value);
-    };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPlayerName(event.target.value);
+  };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        alert(`エントリーされた選手名: ${playerName}`);
-        setPlayerName(''); // フォームをリセット
-        navigate('/tournament');
-    };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert(`エントリーされた選手名: ${playerName}`);
+    const { error } = await supabase
+      .from("t_users")
+      .insert({ user_name: playerName });
+    if (error) {
+      throw error; // 挿入に失敗した場合はエラーを投げる
+    }
+    setPlayerName(""); // フォームをリセット
+    navigate("/menu");
+  };
 
-    
-
-    return (
-        <div className="entry-form-container">
-            <h2>大会エントリーフォーム</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    選手の氏名:
-                    <input 
-                        type="text" 
-                        value={playerName} 
-                        onChange={handleInputChange} 
-                        placeholder="氏名を入力" 
-                        required 
-                    />
-                </label>
-                <button type="submit">エントリー</button>
-            </form>
-        </div>
-    );
+  return (
+    <div className="entry-form-container">
+      <h2>大会エントリーフォーム</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          選手の氏名:
+          <input
+            type="text"
+            value={playerName}
+            onChange={handleInputChange}
+            placeholder="氏名を入力"
+            required
+          />
+        </label>
+        <button type="submit">エントリー</button>
+      </form>
+    </div>
+  );
 };
 
 export default EntryForm;
