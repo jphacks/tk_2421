@@ -20,7 +20,7 @@ const LeftBlock: React.FC<Props> = ({ num, index, tournament }) => {
     return (
         <div>
             {
-                num === 1 && JSON.parse(tournament)[index]["isSeed"]?
+                num === 1 && !JSON.parse(tournament)[index]["isSeed"]?
                     (index % 2 === 0 ? 
                         <div>
                             <LeftFirstBlock className="top-back bottom-back right-back left-back" num={num} />

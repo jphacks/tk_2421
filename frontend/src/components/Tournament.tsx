@@ -36,11 +36,10 @@ function Tournament() {
       <div style={{ height: "50px" }}></div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex" }}>
-          <LeftNameBlocks num={tournament.length / 2} tournament={JSON.stringify(tournament)} />
+          <LeftNameBlocks num={Math.floor(tournament.length / 2)} tournament={JSON.stringify(tournament)} />
           {/* <LineBlocks num={Math.log2(tournament.length)} seedCount={5} /> */}
           <LineBlocks num={calcLength(tournament.length)} tournament={JSON.stringify(tournament)} />
-          {/* 多分ここバグ　*/}
-          {/* <RightNameBlocks num={tournament.length / 2} tournament={JSON.stringify(tournament)} /> */}
+          <RightNameBlocks num={Math.floor(tournament.length / 2)} tournament={JSON.stringify(tournament)} />
         </div>
       </div>
     </div>

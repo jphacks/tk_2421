@@ -22,7 +22,7 @@ const RightBlock: React.FC<Props> = ({ num, row, index, tournament }) => {
     return (
 <div>
             {
-                num === 1 && JSON.parse(tournament)[index + row]["isSeed"]?
+                num === 1 && !JSON.parse(tournament)[index + row]["isSeed"]?
                     (index % 2 === 0 ?
                         <div>
                             <RightFirstBlock className="top-back bottom-back right-back left-back" num={num} />
