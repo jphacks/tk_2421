@@ -11,10 +11,15 @@ app.use(express.json()); // JSONリクエストを解析
 // APIエンドポイントの例
 app.get('/api/tournament', (req, res) => {
     const tournament = [
-        { id: 1, name: "佐藤" },
-        { id: 2, name: "鈴木" },
-        { id: 3, name: "高橋" },
-        { id: 4, name: "田中"}
+        { id: 1, name: "佐藤", isSeed: true },
+        { id: 2, name: "鈴木", isSeed: false },
+        { id: 3, name: "高橋", isSeed: false },
+        { id: 4, name: "田中", isSeed: false },
+        { id: 5, name: "伊藤", isSeed: false },
+        { id: 6, name: "渡辺", isSeed: false },
+        { id: 7, name: "山本", isSeed: false },
+        { id: 8, name: "中村", isSeed: false },
+        { id: 9, name: "小林", isSeed: false }
     ]
     res.json(tournament);
 });

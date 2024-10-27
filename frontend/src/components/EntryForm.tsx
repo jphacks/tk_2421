@@ -22,7 +22,7 @@ const EntryForm: React.FC = () => {
       throw error; // 挿入に失敗した場合はエラーを投げる
     }
     setPlayerName(""); // フォームをリセット
-    //navigate("/tournament");
+    navigate("/menu");
   };
 
   return (
