@@ -8,18 +8,27 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import "../assets/style/style.css";
 import { supabase } from "../utils/SupabaseClient";
 
-function Menu() {
+interface Props {
+  tournament: string;
+  setTournament: Function;
+}
+
+const Menu: React.FC<Props> = ({ tournament, setTournament }) => {
   const navigate = useNavigate();
 
   const handleEntry = () => {
     navigate("/entry");
   };
 
-  const handleCreateTournament = () => {
-    navigate("/create-tournament");
-  };
-
   const handleShowTournament = () => {
+    fetch("http://localhost:5000/api/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setTournament(JSON.stringify(data));
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
     navigate("/show-tournament");
   };
 
@@ -54,12 +63,9 @@ function Menu() {
         <div className="button-group">
           <button onClick={handleEntry}>エントリーする</button>
           <button onClick={handleShowTournament}>トーナメントを表示する</button>
-          <button onClick={handleCreateTournament}>
-            トーナメントを作成する
-          </button>
         </div>
       </div>
     );
-}
+};
 
 export default Menu;
