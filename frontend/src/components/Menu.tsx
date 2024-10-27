@@ -53,10 +53,10 @@ function Menu() {
         <h2>大会管理システム</h2>
         <div className="button-group">
           <button onClick={handleEntry}>エントリーする</button>
+          <button onClick={handleShowTournament}>トーナメントを表示する</button>
           <button onClick={handleCreateTournament}>
             トーナメントを作成する
           </button>
-          <button onClick={handleShowTournament}>トーナメントを表示する</button>
         </div>
       </div>
     );
