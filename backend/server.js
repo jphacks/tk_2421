@@ -13,15 +13,18 @@ const { createClient } = require("@supabase/supabase-js");
 const supabase = createClient(SupabaseUrl, SupabaseKey);
 
 const fetchUsers = async () => {
-  const data = await supabase.from("t_users").select();
+  const { data: data1, error } = await supabase.from("t_users").select();
+  if (error) throw error;
   const list = [];
-  data.data.map((item) => {
+  console.log(Array.isArray(data1));
+  data1.map((item) => {
     list.push({ id: item.id, name: item.user_name, isSeed: true });
   });
   //console.log(result);
   //console.log(Array.isArray(result));
-  if (data.data[0].match_number === null) {
+  if (data1.match_number === null) {
     const result = shuffle(list);
+    console.log(list);
     return result;
   } else {
     return list;
