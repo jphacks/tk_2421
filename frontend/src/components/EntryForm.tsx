@@ -17,11 +17,14 @@ const EntryForm: React.FC = () => {
     alert(`エントリーされた選手名: ${playerName}`);
     const { error } = await supabase
       .from("t_users")
-      .insert({ user_name: playerName });
+      .insert({ user_name: playerName, status: 2 });
     if (error) {
       throw error; // 挿入に失敗した場合はエラーを投げる
     }
     setPlayerName(""); // フォームをリセット
+    //const data = await supabase.auth.getUser();
+    //console.log(await data);
+    //console.log((await data).data.user?.id);
     navigate("/menu");
   };
 
