@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './assets/style/style.css';
-import EntryForm from './components/EntryForm';
-import Tournament from './components/Tournament';
-import Menu from './components/Menu';
-import AuthForm from './components/AuthForm';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./assets/style/style.css";
+import EntryForm from "./components/EntryForm";
+import Tournament from "./components/Tournament";
+import Menu from "./components/Menu";
+import AuthForm from "./components/AuthForm";
 
 function App() {
   return (
