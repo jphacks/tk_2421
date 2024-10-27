@@ -1,8 +1,10 @@
-# らくらくトーナメント(らくトー)
+# プロダクト名:らくらくトーナメント
+
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2024/07/JPHACKS2024_ogp.jpg)](https://www.youtube.com/watch?v=DZXUkEj-CSI)
 
 ## 製品概要
+大会運営支援ツール
 
 ### 背景(製品開発のきっかけ、課題等）
 きっかけ: サークルや地域の大会を開催する際に、トーナメント表を作成するのがかなり面倒であるという周りの学生の声から。
