@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import "../assets/style/style.css";
+import "../assets/style/T_comps.css";
 import { supabase } from "../utils/SupabaseClient";
 
 function Menu() {
