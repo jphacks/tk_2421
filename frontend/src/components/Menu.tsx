@@ -15,10 +15,6 @@ function Menu() {
     navigate("/entry");
   };
 
-  const handleCreateTournament = () => {
-    navigate("/create-tournament");
-  };
-
   const handleShowTournament = () => {
     navigate("/show-tournament");
   };
@@ -54,9 +50,6 @@ function Menu() {
         <div className="button-group">
           <button onClick={handleEntry}>エントリーする</button>
           <button onClick={handleShowTournament}>トーナメントを表示する</button>
-          <button onClick={handleCreateTournament}>
-            トーナメントを作成する
-          </button>
         </div>
       </div>
     );

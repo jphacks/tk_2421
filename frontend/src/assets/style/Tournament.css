@@ -1,0 +1,21 @@
+.tournament-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 画面の高さをフルに使う /
+  width: 100vw; / 画面の幅をフルに使う */
+}
+
+.tournament-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tournament-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
