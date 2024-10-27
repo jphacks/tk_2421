@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./assets/style/style.css";
+import "./assets/style/T_comps.css";
 import EntryForm from "./components/EntryForm";
 import Tournament from "./components/Tournament";
 import Menu from "./components/Menu";
@@ -16,7 +16,7 @@ function App() {
         <Route
           path="/menu"
           element={
-            <Menu tournament={tournament} setTournament={setTournament} />
+            <Menu setTournament={setTournament} />
           }
         />
         <Route

@@ -5,15 +5,14 @@ import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import "../assets/style/style.css";
+import "../assets/style/T_comps.css";
 import { supabase } from "../utils/SupabaseClient";
 
 interface Props {
-  tournament: string;
-  setTournament: Function;
+  setTournament: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Menu: React.FC<Props> = ({ tournament, setTournament }) => {
+const Menu: React.FC<Props> = ({ setTournament }) => {
   const navigate = useNavigate();
 
   const handleEntry = () => {
@@ -21,14 +20,20 @@ const Menu: React.FC<Props> = ({ tournament, setTournament }) => {
   };
 
   const handleShowTournament = () => {
-    fetch("http://localhost:5000/api/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setTournament(JSON.stringify(data));
-      })
-      .catch((error) => {
-        console.error("Error fetching users:", error);
-      });
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/tournament'); // GETリクエスト
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        setTournament(JSON.stringify(response.json())); // 取得したデータを保存
+      } catch (error) {
+        console.error(error); // エラーメッセージを保存
+      }
+    };
+
+    fetchData();
     navigate("/show-tournament");
   };
 

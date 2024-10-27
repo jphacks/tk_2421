@@ -4,21 +4,21 @@ const cors = require("cors"); // CORSを使う場合
 const app = express();
 const port = process.env.PORT || 5000;
 require("dotenv").config();
-const SupabaseUrl = process.env.SUPABASE_URL;
-const SupabaseKey = process.env.SUPABASE_KEY;
+// const SupabaseUrl = process.env.SUPABASE_URL;
+// const SupabaseKey = process.env.SUPABASE_KEY;
 
-//console.log(SupabaseKey);
-//console.log(SupabaseUrl);
-const { createClient } = require("@supabase/supabase-js");
-const supabase = createClient(SupabaseUrl, SupabaseKey);
+// //console.log(SupabaseKey);
+// //console.log(SupabaseUrl);
+// const { createClient } = require("@supabase/supabase-js");
+// const supabase = createClient(SupabaseUrl, SupabaseKey);
 
-const fetchUsers = async () => {
-  const data = await supabase.from("t_holes");
-  console.log(data);
-  return data;
-};
+// const fetchUsers = async () => {
+//   const data = await supabase.from("t_holes");
+//   console.log(data);
+//   return data;
+// };
 
-fetchUsers();
+// fetchUsers();
 
 // CORSの設定（必要な場合）
 app.use(cors());
@@ -51,7 +51,6 @@ app.get("/api/tournament", (req, res) => {
     { id: 9, name: "小林", isSeed: false },
   ];
   console.log(tournament);
-  console.log(shuffle(tournament));
   res.json(tournament);
 });
 
