@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LineBlocks from "./t_comps/LineBlocks";
 import RightNameBlocks from "./t_comps/RightNameBlocks";
 import LeftNameBlocks from "./t_comps/LeftNameBlocks";
+import "../assets/style/Tournament.css"; // CSSをインポート
 
 function Tournament() {
   const [tournament, setTournament] = useState([]);
@@ -32,15 +33,13 @@ function Tournament() {
   };
 
   return (
-    <div>
-      <div style={{ height: "50px" }}></div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex" }}>
+    <div className="tournament-container">
+      <div className="tournament-content">
+        <div className="tournament-row">
           <LeftNameBlocks
             num={Math.floor(tournament.length / 2)}
             tournament={JSON.stringify(tournament)}
           />
-          {/* <LineBlocks num={Math.log2(tournament.length)} seedCount={5} /> */}
           <LineBlocks
             num={calcLength(tournament.length)}
             tournament={JSON.stringify(tournament)}
