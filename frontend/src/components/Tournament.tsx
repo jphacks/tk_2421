@@ -1,6 +1,7 @@
-import NameBlocks from "./NameBlocks";
-import { useEffect, useState } from "react";
-import LineBlocks from "./LineBlocks";
+import React, { useEffect, useState } from "react";
+import LineBlocks from "./t_comps/LineBlocks";
+import RightNameBlocks from "./t_comps/RightNameBlocks";
+import LeftNameBlocks from "./t_comps/LeftNameBlocks";
 
 function Tournament() {
 
@@ -14,7 +15,6 @@ function Tournament() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data);
         setTournament(data);
       } catch (error) {
         console.error('Fetch error:', error);
@@ -23,18 +23,23 @@ function Tournament() {
     fetchTournament();
   }, []);
 
-  useEffect(() => {
-    console.log(Math.log2(tournament.length));
-  }, [tournament]);
+  const calcLength = (num: number) => {
+    if(Number.isInteger(Math.log2(num)))
+      return Math.log2(num);
+    else{
+      return Math.floor(Math.log2(num)) + 1;
+    }
+  }
 
   return (
     <div>
       <div style={{ height: "50px" }}></div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex" }}>
-          <NameBlocks />
-          <LineBlocks num={Math.log2(tournament.length)}/>
-          <NameBlocks />
+          <LeftNameBlocks num={Math.floor(tournament.length / 2)} tournament={JSON.stringify(tournament)} />
+          {/* <LineBlocks num={Math.log2(tournament.length)} seedCount={5} /> */}
+          <LineBlocks num={calcLength(tournament.length)} tournament={JSON.stringify(tournament)} />
+          <RightNameBlocks num={Math.floor(tournament.length / 2)} tournament={JSON.stringify(tournament)} />
         </div>
       </div>
     </div>
