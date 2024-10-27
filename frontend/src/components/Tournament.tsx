@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LineBlocks from "./t_comps/LineBlocks";
 import RightNameBlocks from "./t_comps/RightNameBlocks";
 import LeftNameBlocks from "./t_comps/LeftNameBlocks";
@@ -10,7 +10,7 @@ function Tournament() {
   useEffect(() => {
     const fetchTournament = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/tournament');
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/api/tournament');
         if(!response.ok){
           throw new Error('Network response was not ok');
         }

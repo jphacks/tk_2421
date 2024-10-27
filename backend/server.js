@@ -26,5 +26,5 @@ app.get('/api/tournament', (req, res) => {
 
 // サーバーを起動
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on PORT ${port}`);
 });
