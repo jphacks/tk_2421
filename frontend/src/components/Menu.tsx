@@ -5,30 +5,21 @@ import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import "../assets/style/T_comps.css";
+import "../assets/style/style.css";
 import { supabase } from "../utils/SupabaseClient";
 
-interface Props {
-  tournament: string;
-  setTournament: Function;
-}
-
-const Menu: React.FC<Props> = ({ tournament, setTournament }) => {
+function Menu() {
   const navigate = useNavigate();
 
   const handleEntry = () => {
     navigate("/entry");
   };
 
+  const handleCreateTournament = () => {
+    navigate("/create-tournament");
+  };
+
   const handleShowTournament = () => {
-    fetch("http://localhost:5000/api/tournament")
-      .then((response) => response.json())
-      .then((data) => {
-        setTournament(JSON.stringify(data));
-      })
-      .catch((error) => {
-        console.error("Error fetching users:", error);
-      });
     navigate("/show-tournament");
   };
 
@@ -63,9 +54,12 @@ const Menu: React.FC<Props> = ({ tournament, setTournament }) => {
         <div className="button-group">
           <button onClick={handleEntry}>エントリーする</button>
           <button onClick={handleShowTournament}>トーナメントを表示する</button>
+          <button onClick={handleCreateTournament}>
+            トーナメントを作成する
+          </button>
         </div>
       </div>
     );
-};
+}
 
 export default Menu;
