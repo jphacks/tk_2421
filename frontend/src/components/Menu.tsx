@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import "../assets/style/style.css";
+import "../assets/style/T_comps.css";
 import { supabase } from "../utils/SupabaseClient";
 
 interface Props {
@@ -21,7 +21,7 @@ const Menu: React.FC<Props> = ({ tournament, setTournament }) => {
   };
 
   const handleShowTournament = () => {
-    fetch("http://localhost:5000/api/users")
+    fetch("http://localhost:5000/api/tournament")
       .then((response) => response.json())
       .then((data) => {
         setTournament(JSON.stringify(data));

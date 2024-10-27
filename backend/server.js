@@ -13,12 +13,20 @@ const { createClient } = require("@supabase/supabase-js");
 const supabase = createClient(SupabaseUrl, SupabaseKey);
 
 const fetchUsers = async () => {
-  const data = await supabase.from("t_holes");
-  console.log(data);
-  return data;
+  const data = await supabase.from("t_users").select();
+  const list = [];
+  data.data.map((item) => {
+    list.push({ id: item.id, name: item.user_name, isSeed: false });
+  });
+  //console.log(result);
+  //console.log(Array.isArray(result));
+  if (data.data[0].match_number === null) {
+    const result = shuffle(list);
+    return result;
+  } else {
+    return list;
+  }
 };
-
-fetchUsers();
 
 // CORSの設定（必要な場合）
 app.use(cors());
@@ -38,21 +46,21 @@ const shuffle = (array) => {
 };
 
 // APIエンドポイントの例
-app.get("/api/tournament", (req, res) => {
-  const tournament = [
-    { id: 1, name: "佐藤", isSeed: true },
-    { id: 2, name: "鈴木", isSeed: false },
-    { id: 3, name: "高橋", isSeed: false },
-    { id: 4, name: "田中", isSeed: false },
-    { id: 5, name: "伊藤", isSeed: false },
-    { id: 6, name: "渡辺", isSeed: false },
-    { id: 7, name: "山本", isSeed: false },
-    { id: 8, name: "中村", isSeed: false },
-    { id: 9, name: "小林", isSeed: false },
-  ];
-  console.log(tournament);
-  console.log(shuffle(tournament));
-  res.json(tournament);
+app.get("/api/tournament", async (req, res) => {
+  //   const tournament = [
+  //     { id: 1, name: "佐藤", isSeed: true },
+  //     { id: 2, name: "鈴木", isSeed: false },
+  //     { id: 3, name: "高橋", isSeed: false },
+  //     { id: 4, name: "田中", isSeed: false },
+  //     { id: 5, name: "伊藤", isSeed: false },
+  //     { id: 6, name: "渡辺", isSeed: false },
+  //     { id: 7, name: "山本", isSeed: false },
+  //     { id: 8, name: "中村", isSeed: false },
+  //     { id: 9, name: "小林", isSeed: false },
+  //   ];
+  const users = await fetchUsers();
+  console.log(users);
+  res.json(users);
 });
 
 // サーバーを起動
