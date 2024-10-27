@@ -16,7 +16,7 @@ const fetchUsers = async () => {
   const data = await supabase.from("t_users").select();
   const list = [];
   data.data.map((item) => {
-    list.push({ id: item.id, name: item.user_name, isSeed: false });
+    list.push({ id: item.id, name: item.user_name, isSeed: true });
   });
   //console.log(result);
   //console.log(Array.isArray(result));
